@@ -1,0 +1,13 @@
+letters: a i u e o k g s z t d n h b p m y ɾ w tʃ ʃ ts f ʤ ny tʃ ky gy ɾy my hy py by jy
+
+W := a u o
+V := a i u e o
+C := k g s z t d n h b p m y ɾ w
+K := ny tʃ ky gy ɾy my hy py by jy
+N := n
+S := CV V KW
+
+reject: y(i|e) w(i|e|o)
+filter: ti > tʃi; si > ʃi; tu > tsu; hu > fu; zi > ʤi; za > tsa
+filter: np > mp; nb > mb
+filter: ts > x; ɾ > r; tʃ > ch; ʃ > sh; ʤ > j
