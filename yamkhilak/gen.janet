@@ -6,7 +6,7 @@
   []
   "Hello!")
 
-(def program-desc "Yamakhilak, a conglang word generator")
+(def program-desc "ygen: Yamakhilak conglang word generator")
 (def options-list
   '(:default  {:kind :option :required true :help "Language definition file"}
     "count"   {:kind :option :default "50" :short "c" :help "Number of words to generate"}
