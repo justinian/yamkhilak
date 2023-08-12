@@ -1,4 +1,11 @@
-(var *module-rng* (math/rng))
+(use spork)
+(var *module-rng* (math/rng (os/time)))
+
+(defn power-law [falloff (x & xs)]
+    (if (or (= (length xs) 0)
+            (> falloff (math/rng-uniform *module-rng*)))
+        x
+        (power-law falloff xs)))
 
 (defn choice [xs]
     (in xs (math/rng-int *module-rng* (length xs))))
@@ -24,6 +31,8 @@
 
 (defn slurp-file [filename]
     `Return the contents of a file`
-    (let [infile (file/open filename)]
-        (defer (file/close infile)
-            (if (not (= infile nil)) (file/read infile :all)))))
+    (if (sh/exists? filename)
+        (let [infile (file/open filename)]
+            (defer (file/close infile)
+                (if (not (= infile nil)) (file/read infile :all))))
+        (error (string/format "No such file %s" filename))))

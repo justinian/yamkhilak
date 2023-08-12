@@ -1,8 +1,9 @@
 (declare-project
   :name "yamkhilak"
   :description ```A conlang word generator ```
-  :version "0.0.1")
+  :version "0.0.1"
+  :dependencies ["https://github.com/janet-lang/spork.git"])
 
 (declare-executable
-  :name "wordjen"
-  :entry "wordjen/init.janet")
+  :name "yamakh"
+  :entry "yamkhilak/init.janet")
